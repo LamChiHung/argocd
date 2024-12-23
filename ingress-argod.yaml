@@ -1,4 +1,3 @@
-# https://argo-cd.readthedocs.io/en/latest/operator-manual/ingress/
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -7,7 +6,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - http:
+    - host: argocd.lab05.200lab.com  # Host should be under 'rules'
+      http:
         paths:
           - path: /
             pathType: Prefix
@@ -15,7 +15,6 @@ spec:
               service:
                 port:
                   number: 80
-      host: argocd.lab05.200lab.com
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -27,7 +26,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - http:
+    - host: grpc.argocd.lab05.200lab.com  # Host should be under 'rules'
+      http:
         paths:
           - path: /
             pathType: Prefix
@@ -35,4 +35,3 @@ spec:
               service:
                 port:
                   number: 443
-      host: grpc.argocd.lab05.200lab.com
