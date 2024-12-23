@@ -6,13 +6,14 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: argocd.lab05.200lab.com  # Host should be under 'rules'
+    - host: argocd.lab05.200lab.com  # Host under 'rules'
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
+                name: argocd-server  # Add the service name here
                 port:
                   number: 80
 ---
@@ -26,12 +27,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: grpc.argocd.lab05.200lab.com  # Host should be under 'rules'
+    - host: grpc.argocd.lab05.200lab.com  # Host under 'rules'
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
+                name: argocd-server  # Add the service name here
                 port:
                   number: 443
