@@ -15,7 +15,6 @@ spec:
               service:
                 name: argocd-server
                 port:
-                  name: http
                   number: 80
       host: argocd.lab05.200lab.com
 ---
