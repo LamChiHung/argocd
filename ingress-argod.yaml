@@ -13,7 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: argocd-server
                 port:
                   number: 80
       host: argocd.lab05.200lab.com
@@ -34,7 +33,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: argocd-server
                 port:
                   number: 443
       host: grpc.argocd.lab05.200lab.com
